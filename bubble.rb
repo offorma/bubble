@@ -9,7 +9,7 @@ def bubbleSort(arr)
     end
     break if swapped == false
   end
-  print arr
+  arr
 end
 
 def bubble_sort_by(arr)
@@ -23,7 +23,7 @@ def bubble_sort_by(arr)
     end
     break if swapped == false
   end
-  print arr
+  arr
 end
 
 nums = [3, 2, 1, 5, 21, 8, 6, 9, 4, 7]
