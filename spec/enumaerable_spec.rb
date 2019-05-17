@@ -2,16 +2,22 @@ require 'rspec'
 require "./eneumerable"
 
 describe Enumerable do 
- array = [1,2,3]
-   describe '#my_each' do 
-      it 'goes through the array and returns same nil' do
-         expect(array.my_each{|v| v*2}).to eq (nil)
-      end
-   end
+    let(:array) { $array = [1,2,3] }
+    describe '#my_each' do 
+        it 'goes through the array and returns same item double' do
+            multy_ar = []
+            array.my_each{|v| multy_ar.push(v*2)}
+            expect(multy_ar).to eq ([2,4,6])
+        end
+    end
    describe '#my_each_with_index' do
-      it 'goes through the array and returns same nil' do
-         expect(array.my_each_with_index{|v| v*2}).to eq (nil)
-      end
+    it 'goes through the array and returns item and index' do
+        array_pair_with_org = []
+        array_pair_with_cust = []
+        array.my_each_with_index{|v, i| array_pair_with_cust.push([v,i])}
+        array.each_with_index{|v, i| array_pair_with_org.push([v,i])}
+        expect(array_pair_with_cust).to eq (array_pair_with_cust)
+    end
    end
    describe '#my_select' do
         it 'goes through the array and returns array where block condition is true' do
